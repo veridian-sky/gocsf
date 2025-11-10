@@ -24,7 +24,6 @@ func main() {
 		Uid:         "user-123",
 		Type:        "Regular",
 		TypeId:      1,
-		DisplayName: "John Doe",
 		Account:     &account, // Use pointer
 	}
 
