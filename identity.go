@@ -199,6 +199,8 @@ type User struct {
 	Account *Account `json:"account,omitempty"`
 	// The unique identifier of the user's credential. For example, AWS Access Key ID.
 	CredentialUid string `json:"credential_uid,omitempty"`
+	// Display Name for the user.
+	DisplayName string `json:"display_name,omitempty"`
 	// The domain where the user is defined. For example: the LDAP or Active Directory domain.
 	Domain string `json:"domain,omitempty"`
 	// The user's primary email address.
@@ -210,7 +212,7 @@ type User struct {
 	// The additional LDAP attributes that describe a person.
 	LdapPerson *LdapPerson `json:"ldap_person,omitempty"`
 	// The username. For example, <code>janedoe1</code>.
-	Name interface{} `json:"name"`
+	Name string `json:"name"`
 	// Organization and org unit related to the user.
 	Org *Organization `json:"org,omitempty"`
 	// The risk level, normalized to the caption of the risk_level_id value.
@@ -228,4 +230,3 @@ type User struct {
 	// The alternate user identifier. For example, the Active Directory user GUID or AWS user Principal ID.
 	UidAlt string `json:"uid_alt,omitempty"`
 }
-

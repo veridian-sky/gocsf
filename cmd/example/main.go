@@ -18,14 +18,13 @@ func main() {
 
 	// Create a User object
 	user := gocsf.User{
-		Name:        "john.doe",
-		FullName:    "John Doe",
-		EmailAddr:   "john.doe@example.com",
-		Uid:         "user-123",
-		Type:        "Regular",
-		TypeId:      1,
-		DisplayName: "John Doe",
-		Account:     &account, // Use pointer
+		Name:      "john.doe",
+		FullName:  "John Doe",
+		EmailAddr: "john.doe@example.com",
+		Uid:       "user-123",
+		Type:      "Regular",
+		TypeId:    1,
+		Account:   &account, // Use pointer
 	}
 
 	// Create an Actor object
