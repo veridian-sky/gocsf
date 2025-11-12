@@ -174,6 +174,8 @@ type Device struct {
 	IsCompliant bool `json:"is_compliant,omitempty"`
 	// The event occurred on a managed device.
 	IsManaged bool `json:"is_managed,omitempty"`
+	// Indicates whether the device has an active mobile account.
+	IsMobileAccountActive bool `json:"is_mobile_account_active,omitempty"`
 	// The event occurred on a personal device.
 	IsPersonal bool `json:"is_personal,omitempty"`
 	// The event occurred on a trusted device.
@@ -474,6 +476,8 @@ type Process struct {
 	CmdLine string `json:"cmd_line"`
 	// The information describing an instance of a container. A container is a prepackaged, portable system image that runs isolated on an existing system using a container runtime like containerd.
 	Container *Container `json:"container"`
+	// A unique process identifier that can be assigned deterministically by multiple system data producers.
+	Cpid string `json:"cpid,omitempty"`
 	// The time when the process was created/started.
 	CreatedTime time.Time `json:"created_time"`
 	// The time when the process was created/started.
@@ -669,4 +673,3 @@ type WinWinService struct {
 	// The version of the service.
 	Version string `json:"version"`
 }
-

@@ -80,30 +80,64 @@ type DigitalSignature struct {
 type Email struct {
 	// The email header Cc values, as defined by RFC 5322.
 	Cc []string `json:"cc,omitempty"`
-	// The Data Classification object includes information about data classification levels and data category types.
-	DataClassification *DataClassification `json:"data_classification"`
+	// The human-readable email header Cc Mailbox values.
+	CcMailboxes []string `json:"cc_mailboxes,omitempty"`
+	// A list of Data Classification objects, that include information about data classification levels and data category types, identified by a classifier.
+	DataClassifications []*DataClassification `json:"data_classifications,omitempty"`
 	// The <strong>Delivered-To</strong> email header field.
+	// Deprecated: Use delivered_to_list instead
 	DeliveredTo string `json:"delivered_to,omitempty"`
+	// The machine-readable Delivered-To email header values.
+	DeliveredToList []string `json:"delivered_to_list,omitempty"`
+	// The files embedded or attached to the email.
+	Files []*File `json:"files,omitempty"`
 	// The email header From values, as defined by RFC 5322.
-	From string `json:"from"`
+	From string `json:"from,omitempty"`
+	// The machine-readable email header From Mailbox value.
+	FromMailbox string `json:"from_mailbox,omitempty"`
+	// The machine-readable email header From Mailbox values.
+	FromMailboxes []string `json:"from_mailboxes,omitempty"`
+	// The machine-readable email header From values.
+	FromList []string `json:"from_list,omitempty"`
+	// Additional HTTP headers of an HTTP request or response.
+	HttpHeaders []*HttpHeader `json:"http_headers,omitempty"`
+	// The indication of whether the email has been read.
+	IsRead bool `json:"is_read,omitempty"`
 	// The email header Message-Id value, as defined by RFC 5322.
-	MessageUid string `json:"message_uid"`
+	MessageUid string `json:"message_uid,omitempty"`
 	// The email authentication header.
 	RawHeader string `json:"raw_header,omitempty"`
 	// The email header Reply-To values, as defined by RFC 5322.
-	ReplyTo string `json:"reply_to"`
+	// Deprecated: Use reply_to_list instead
+	ReplyTo string `json:"reply_to,omitempty"`
+	// The machine-readable email header Reply-To values.
+	ReplyToList []string `json:"reply_to_list,omitempty"`
+	// The human-readable email header Reply To Mailbox values.
+	ReplyToMailboxes []string `json:"reply_to_mailboxes,omitempty"`
+	// The address found in the 'Return-Path' header.
+	ReturnPath string `json:"return_path,omitempty"`
+	// The machine readable email address of the system or server that actually transmitted the email message.
+	Sender string `json:"sender,omitempty"`
+	// The human readable email address of the system or server that actually transmitted the email message.
+	SenderMailbox string `json:"sender_mailbox,omitempty"`
 	// The size in bytes of the email, including attachments.
-	Size int64 `json:"size"`
+	Size int64 `json:"size,omitempty"`
 	// The value of the SMTP MAIL FROM command.
-	SmtpFrom string `json:"smtp_from"`
+	// Deprecated: Use from instead
+	SmtpFrom string `json:"smtp_from,omitempty"`
 	// The value of the SMTP envelope RCPT TO command.
-	SmtpTo []string `json:"smtp_to"`
+	// Deprecated: Use to instead
+	SmtpTo []string `json:"smtp_to,omitempty"`
 	// The email header Subject value, as defined by RFC 5322.
-	Subject string `json:"subject"`
+	Subject string `json:"subject,omitempty"`
 	// The email header To values, as defined by RFC 5322.
-	To []string `json:"to"`
+	To []string `json:"to,omitempty"`
+	// The human-readable email header To Mailbox values.
+	ToMailboxes []string `json:"to_mailboxes,omitempty"`
 	// The email unique identifier.
-	Uid string `json:"uid"`
+	Uid string `json:"uid,omitempty"`
+	// The URLs embedded in the email.
+	Urls []*Url `json:"urls,omitempty"`
 	// The X-Originating-IP header identifying the emails originating IP address(es).
 	XOriginatingIp []string `json:"x_originating_ip,omitempty"`
 }
@@ -539,13 +573,13 @@ type Response struct {
 	// The additional data that is associated with the api response.
 	Data json.RawMessage `json:"data,omitempty"`
 	// Error Code
-	Error string `json:"error"`
+	Error string `json:"error,omitempty"`
 	// Error Message
-	ErrorMessage string `json:"error_message"`
+	ErrorMessage string `json:"error_message,omitempty"`
 	// The list of communication flags, normalized to the captions of the flag_ids values. In the case of 'Other', they are defined by the event source.
 	Flags []string `json:"flags,omitempty"`
 	// The description of the event/finding, as defined by the source.
-	Message string `json:"message"`
+	Message string `json:"message,omitempty"`
 }
 
 // Rule The Rule object describes characteristics of a rule associated with a policy or an event.
@@ -667,4 +701,3 @@ type Whois struct {
 	// The IP address block (CIDR) associated with a domain.
 	Subnet string `json:"subnet,omitempty"`
 }
-

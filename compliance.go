@@ -3,6 +3,33 @@ package gocsf
 
 // Compliance Types
 
+// ClassifierDetails The Classifier Details object describes details about the classifier used for data classification.
+type ClassifierDetails struct {
+	// The name of the classifier.
+	Name string `json:"name,omitempty"`
+	// The type of the classifier.
+	Type string `json:"type"`
+	// The unique identifier of the classifier.
+	Uid string `json:"uid,omitempty"`
+}
+
+// DiscoveryDetails The Discovery Details object describes results of a discovery task/job.
+type DiscoveryDetails struct {
+	// The number of discovered entities of the specified type.
+	Count int `json:"count,omitempty"`
+	// Details about where in the target entity, specified information was discovered. Only the attributes, relevant to the target entity type should be populated.
+	Occurrences []*OccurrenceDetails `json:"occurrences,omitempty"`
+	// The specific type of information that was discovered. e.g. name, phone_number, etc.
+	Type string `json:"type,omitempty"`
+	// Optionally, the specific value of discovered information.
+	Value string `json:"value,omitempty"`
+}
+
+// OccurrenceDetails Details about where in the target entity, specified information was discovered.
+type OccurrenceDetails struct {
+	// Add fields based on schema requirements - this is a placeholder
+}
+
 // CisBenchmark The CIS Benchmark object describes best practices for securely configuring IT systems, software, networks, and cloud infrastructure as defined by the <a target='_blank' href='https://www.cisecurity.org/cis-benchmarks/'>Center for Internet Security</a>. See also <a target='_blank' href='https://www.cisecurity.org/insights/blog/getting-to-know-the-cis-benchmarks'>Getting to Know the CIS Benchmarks</a>.
 type CisBenchmark struct {
 	// The CIS Critical Security Controls is a prioritized set of actions to protect your organization and data from cyber-attack vectors.
@@ -71,12 +98,30 @@ type DataClassification struct {
 	Category string `json:"category,omitempty"`
 	// The normalized identifier of the data classification category.
 	CategoryId int `json:"category_id"`
+	// Describes details about the classifier used for data classification.
+	ClassifierDetails *ClassifierDetails `json:"classifier_details,omitempty"`
 	// The file content confidentiality, normalized to the confidentiality_id value. In the case of 'Other', it is defined by the event source.
 	Confidentiality string `json:"confidentiality,omitempty"`
 	// The normalized identifier of the file content confidentiality indicator.
 	ConfidentialityId int `json:"confidentiality_id"`
+	// Details about the data discovered by classification job.
+	DiscoveryDetails []*DiscoveryDetails `json:"discovery_details,omitempty"`
 	// Details about the data policy that governs data handling and security measures related to classification.
 	Policy *Policy `json:"policy,omitempty"`
+	// Size of the data classified.
+	Size int64 `json:"size,omitempty"`
+	// The source URL pointing towards the full classification job details.
+	SrcUrl string `json:"src_url,omitempty"`
+	// The resultant status of the classification job normalized to the caption of the status_id value. In the case of 'Other', it is defined by the event source.
+	Status string `json:"status,omitempty"`
+	// The contextual description of the status, status_id value.
+	StatusDetails []string `json:"status_details,omitempty"`
+	// The normalized status identifier of the classification job.
+	StatusId int `json:"status_id,omitempty"`
+	// The total count of discovered entities, by the classification job.
+	Total int `json:"total,omitempty"`
+	// The unique identifier of the classification job.
+	Uid string `json:"uid,omitempty"`
 }
 
 // DataSecurity The Data Security object describes the characteristics, techniques and content of a Data Loss Prevention (DLP), Data Loss Detection (DLD), Data Classification, or similar tools' finding, alert, or detection mechanism(s).
@@ -85,6 +130,8 @@ type DataSecurity struct {
 	Category string `json:"category,omitempty"`
 	// The normalized identifier of the data classification category.
 	CategoryId int `json:"category_id"`
+	// Describes details about the classifier used for data classification.
+	ClassifierDetails *ClassifierDetails `json:"classifier_details,omitempty"`
 	// The file content confidentiality, normalized to the confidentiality_id value. In the case of 'Other', it is defined by the event source.
 	Confidentiality string `json:"confidentiality,omitempty"`
 	// The normalized identifier of the file content confidentiality indicator.
@@ -99,10 +146,26 @@ type DataSecurity struct {
 	DetectionSystem string `json:"detection_system,omitempty"`
 	// The type of data security tool or system that the finding, detection, or alert originated from.
 	DetectionSystemId int `json:"detection_system_id"`
+	// Details about the data discovered by classification job.
+	DiscoveryDetails []*DiscoveryDetails `json:"discovery_details,omitempty"`
 	// A text, binary, file name, or datastore that matched against a detection rule.
 	PatternMatch string `json:"pattern_match,omitempty"`
 	// Details about the policy that triggered the finding.
 	Policy *Policy `json:"policy"`
+	// Size of the data classified.
+	Size int64 `json:"size,omitempty"`
+	// The source URL pointing towards the full classification job details.
+	SrcUrl string `json:"src_url,omitempty"`
+	// The resultant status of the classification job normalized to the caption of the status_id value. In the case of 'Other', it is defined by the event source.
+	Status string `json:"status,omitempty"`
+	// The contextual description of the status, status_id value.
+	StatusDetails []string `json:"status_details,omitempty"`
+	// The normalized status identifier of the classification job.
+	StatusId int `json:"status_id,omitempty"`
+	// The total count of discovered entities, by the classification job.
+	Total int `json:"total,omitempty"`
+	// The unique identifier of the classification job.
+	Uid string `json:"uid,omitempty"`
 }
 
 // Policy The Policy object describes the policies that are applicable. <p>Policy attributes provide traceability to the operational state of the security product at the time that the event was captured, facilitating forensics, troubleshooting, and policy tuning/adjustments.</p>
@@ -140,4 +203,3 @@ type SecurityState struct {
 	// The security state of the managed entity.
 	StateId int `json:"state_id"`
 }
-

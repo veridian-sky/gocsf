@@ -214,12 +214,14 @@ type HttpRequest struct {
 
 // HttpResponse The HTTP Response object contains detailed information about the response sent from a web server to the requester. It encompasses attributes and metadata that describe the response status, headers, body content, and other relevant information.
 type HttpResponse struct {
+	// The actual length of the HTTP response body, in number of bytes, independent of a potentially existing Content-Length header.
+	BodyLength int `json:"body_length,omitempty"`
 	// The Hypertext Transfer Protocol (HTTP) status code returned from the web server to the client. For example, 200.
 	Code int `json:"code"`
 	// The request header that identifies the original <a target='_blank' href='https://www.iana.org/assignments/media-types/media-types.xhtml'>media type </a> of the resource (prior to any content encoding applied for sending).
 	ContentType string `json:"content_type,omitempty"`
 	// Additional HTTP headers of an HTTP request or response.
-	HttpHeaders []*HttpHeader `json:"http_headers"`
+	HttpHeaders []*HttpHeader `json:"http_headers,omitempty"`
 	// The HTTP response latency measured in milliseconds.
 	Latency int `json:"latency,omitempty"`
 	// The HTTP response length, in number of bytes.
@@ -497,4 +499,3 @@ type Url struct {
 	// The URL string. See RFC 1738. For example: <code>http://www.example.com/download/trouble.exe</code>. Note: The URL path should not populate the URL string.
 	UrlString string `json:"url_string"`
 }
-
