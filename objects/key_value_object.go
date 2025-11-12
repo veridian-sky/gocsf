@@ -1,0 +1,16 @@
+package objects
+
+// Code generated from OCSF schema; DO NOT EDIT.
+
+// KeyValueObject A generic object allowing to define a {key:value} pair.
+type KeyValueObject struct {
+	// The name of the key.
+	Name string `json:"name,omitempty"`
+
+	// The value associated to the key.
+	Value string `json:"value,omitempty"`
+
+	// Optional, the values associated to the key. You can populate this attribute,
+	// when you have multiple values for the same key.
+	Values []string `json:"values,omitempty"`
+}

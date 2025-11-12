@@ -1,0 +1,69 @@
+package objects
+
+// Code generated from OCSF schema; DO NOT EDIT.
+
+// Sso The Single Sign-On (SSO) object provides a structure for normalizing SSO
+// attributes, configuration, and/or settings from Identity Providers.
+type Sso struct {
+	// The authorization protocol as defined by the caption of auth_protocol_id. In
+	// the case of Other, it is defined by the event source.
+	AuthProtocol string `json:"auth_protocol,omitempty"`
+
+	// The normalized identifier of the authentication protocol used by the SSO
+	// resource.
+	AuthProtocolID int `json:"auth_protocol_id,omitempty"`
+
+	// Digital Signature associated with the SSO resource, e.g., SAML X.509
+	// certificate details.
+	Certificate *Certificate `json:"certificate,omitempty"`
+
+	// When the SSO resource was created.
+	CreatedTime int64 `json:"created_time,omitempty"`
+
+	// When the SSO resource was created.
+	CreatedTimeDt string `json:"created_time_dt,omitempty"`
+
+	// The duration (in minutes) for an SSO session, after which re-authentication
+	// is required.
+	DurationMins int64 `json:"duration_mins,omitempty"`
+
+	// Duration (in minutes) of allowed inactivity before Single Sign-On (SSO)
+	// session expiration.
+	IdleTimeout int64 `json:"idle_timeout,omitempty"`
+
+	// URL for initiating an SSO login request.
+	LoginEndpoint string `json:"login_endpoint,omitempty"`
+
+	// URL for initiating an SSO logout request, allowing sessions to be terminated
+	// across applications.
+	LogoutEndpoint string `json:"logout_endpoint,omitempty"`
+
+	// URL where metadata about the SSO configuration is available (e.g., for SAML
+	// configurations).
+	MetadataEndpoint string `json:"metadata_endpoint,omitempty"`
+
+	// The most recent time when the SSO resource was updated.
+	ModifiedTime int64 `json:"modified_time,omitempty"`
+
+	// The most recent time when the SSO resource was updated.
+	ModifiedTimeDt string `json:"modified_time_dt,omitempty"`
+
+	// The name of the SSO resource.
+	Name string `json:"name,omitempty"`
+
+	// The supported protocol for the SSO resource. E.g., SAML or OIDC.
+	ProtocolName string `json:"protocol_name,omitempty"`
+
+	// Scopes define the specific permissions or actions that the client is allowed
+	// to perform on behalf of the user. Each scope represents a different set of
+	// permissions, and the user can selectively grant or deny access to specific
+	// scopes during the authorization process.
+	Scopes []string `json:"scopes,omitempty"`
+
+	// A unique identifier for a SSO resource.
+	Uid string `json:"uid,omitempty"`
+
+	// Name of the vendor or service provider implementing SSO. E.g., Okta, Auth0,
+	// Microsoft.
+	VendorName string `json:"vendor_name,omitempty"`
+}

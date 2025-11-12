@@ -1,0 +1,26 @@
+package objects
+
+// Code generated from OCSF schema; DO NOT EDIT.
+
+// DiscoveryDetails The Discovery Details object describes results of a discovery task/job.
+type DiscoveryDetails struct {
+	// The number of discovered entities of the specified type.
+	Count int64 `json:"count,omitempty"`
+
+	// Details about where in the target entity, specified information was
+	// discovered. Only the attributes, relevant to the target entity type should
+	// be populated.
+	OccurrenceDetails *OccurrenceDetails `json:"occurrence_details,omitempty"`
+
+	// Details about where in the target entity, specified information was
+	// discovered. Only the attributes, relevant to the target entity type should
+	// be populated.
+	Occurrences []*OccurrenceDetails `json:"occurrences,omitempty"`
+
+	// The specific type of information that was discovered. e.g. name,
+	// phone_number, etc.
+	Type string `json:"type,omitempty"`
+
+	// Optionally, the specific value of discovered information.
+	Value string `json:"value,omitempty"`
+}

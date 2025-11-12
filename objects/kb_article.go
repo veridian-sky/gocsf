@@ -1,0 +1,51 @@
+package objects
+
+// Code generated from OCSF schema; DO NOT EDIT.
+
+// KbArticle The KB Article object contains metadata that describes the patch or update.
+type KbArticle struct {
+	// The average time to patch.
+	AvgTimespan *Timespan `json:"avg_timespan,omitempty"`
+
+	// The kb article bulletin identifier.
+	Bulletin string `json:"bulletin,omitempty"`
+
+	// The vendors classification of the kb article.
+	Classification string `json:"classification,omitempty"`
+
+	// The date the kb article was released by the vendor.
+	CreatedTime int64 `json:"created_time,omitempty"`
+
+	// The date the kb article was released by the vendor.
+	CreatedTimeDt string `json:"created_time_dt,omitempty"`
+
+	// The install state of the kb article.
+	InstallState string `json:"install_state,omitempty"`
+
+	// The normalized install state ID of the kb article.
+	InstallStateID int `json:"install_state_id,omitempty"`
+
+	// The kb article has been replaced by another.
+	IsSuperseded bool `json:"is_superseded,omitempty"`
+
+	// The operating system the kb article applies.
+	Os *Os `json:"os,omitempty"`
+
+	// The product details the kb article applies.
+	Product *Product `json:"product,omitempty"`
+
+	// The severity of the kb article.
+	Severity string `json:"severity,omitempty"`
+
+	// The size in bytes for the kb article.
+	Size int64 `json:"size,omitempty"`
+
+	// The kb article link from the source vendor.
+	SrcURL string `json:"src_url,omitempty"`
+
+	// The title of the kb article.
+	Title string `json:"title,omitempty"`
+
+	// The unique identifier for the kb article.
+	Uid string `json:"uid,omitempty"`
+}

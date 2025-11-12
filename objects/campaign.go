@@ -1,0 +1,11 @@
+package objects
+
+// Code generated from OCSF schema; DO NOT EDIT.
+
+// Campaign Campaign represent organized efforts by threat actors to achieve malicious
+// objectives over a period, often characterized by shared tactics, techniques, and
+// procedures (TTPs).
+type Campaign struct {
+	// The name of a specific campaign associated with a cyber threat.
+	Name string `json:"name,omitempty"`
+}

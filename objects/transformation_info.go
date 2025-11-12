@@ -1,0 +1,28 @@
+package objects
+
+// Code generated from OCSF schema; DO NOT EDIT.
+
+// TransformationInfo The transformation_info object represents the mapping or transformation used.
+type TransformationInfo struct {
+	// The transformation language used to transform the data.
+	Lang string `json:"lang,omitempty"`
+
+	// The name of the transformation or mapping.
+	Name string `json:"name,omitempty"`
+
+	// The product or instance used to make the transformation
+	Product *Product `json:"product,omitempty"`
+
+	// Time of the transformation.
+	Time int64 `json:"time,omitempty"`
+
+	// Time of the transformation.
+	TimeDt string `json:"time_dt,omitempty"`
+
+	// The unique identifier of the mapping or transformation.
+	Uid string `json:"uid,omitempty"`
+
+	// The Uniform Resource Locator String where the mapping or transformation
+	// exists.
+	UrlString string `json:"url_string,omitempty"`
+}

@@ -1,0 +1,19 @@
+package objects
+
+// Code generated from OCSF schema; DO NOT EDIT.
+
+// SubTechnique The MITRE Sub-technique object describes the ATT&CK® or ATLAS™ Sub-technique
+// ID and/or name associated to an attack.
+type SubTechnique struct {
+	// The name of the attack sub-technique. For example: Scanning IP Blocks or
+	// User Execution: Unsafe ML Artifacts.
+	Name string `json:"name,omitempty"`
+
+	// The versioned permalink of the attack sub-technique. For example:
+	// https://attack.mitre.org/versions/v14/techniques/T1595/001/.
+	SrcURL string `json:"src_url,omitempty"`
+
+	// The unique identifier of the attack sub-technique. For example: T1595.001 or
+	// AML.T0011.000.
+	Uid string `json:"uid,omitempty"`
+}

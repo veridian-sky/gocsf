@@ -1,0 +1,24 @@
+package objects
+
+// Code generated from OCSF schema; DO NOT EDIT.
+
+// Mitigation The MITRE Mitigation object describes the ATT&CK® or ATLAS™ Mitigation ID
+// and/or name that is associated to an attack.
+type Mitigation struct {
+	// The D3FEND countermeasures that are associated with the attack technique.
+	// For example: ATT&CK Technique T1003 is addressed by Mitigation M1027, and
+	// D3FEND Technique D3-OTP.
+	Countermeasures []*D3fend `json:"countermeasures,omitempty"`
+
+	// The Mitigation name that is associated with the attack technique. For
+	// example: Password Policies, or Code Signing.
+	Name string `json:"name,omitempty"`
+
+	// The versioned permalink of the Mitigation. For example:
+	// https://attack.mitre.org/versions/v14/mitigations/M1027.
+	SrcURL string `json:"src_url,omitempty"`
+
+	// The Mitigation ID that is associated with the attack technique. For example:
+	// M1027, or AML.M0013.
+	Uid string `json:"uid,omitempty"`
+}

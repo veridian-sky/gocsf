@@ -1,0 +1,13 @@
+package objects
+
+// Code generated from OCSF schema; DO NOT EDIT.
+
+// San The Subject Alternative name (SAN) object describes a SAN secured by a digital
+// certificate
+type San struct {
+	// Name of SAN (e.g. The actual IP Address or domain.)
+	Name string `json:"name,omitempty"`
+
+	// Type descriptor of SAN (e.g. IP Address/domain/etc.)
+	Type string `json:"type,omitempty"`
+}

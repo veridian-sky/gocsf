@@ -1,0 +1,29 @@
+package objects
+
+// Code generated from OCSF schema; DO NOT EDIT.
+
+// Edge Represents a connection or relationship between two nodes in a graph.
+type Edge struct {
+	// Additional data about the edge such as weight, distance, or custom
+	// properties.
+	Data interface{} `json:"data,omitempty"`
+
+	// Indicates whether the edge is (true) or undirected (false).
+	IsDirected bool `json:"is_directed,omitempty"`
+
+	// The human-readable name or label for the edge.
+	Name string `json:"name,omitempty"`
+
+	// The type of relationship between nodes (e.g. is-attached-to , depends-on,
+	// etc).
+	Relation string `json:"relation,omitempty"`
+
+	// The unique identifier of the node where the edge originates.
+	Source string `json:"source,omitempty"`
+
+	// The unique identifier of the node where the edge terminates.
+	Target string `json:"target,omitempty"`
+
+	// Unique identifier of the edge.
+	Uid string `json:"uid,omitempty"`
+}

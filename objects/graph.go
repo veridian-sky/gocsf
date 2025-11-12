@@ -1,0 +1,40 @@
+package objects
+
+// Code generated from OCSF schema; DO NOT EDIT.
+
+// Graph A graph data structure representation with nodes and edges.
+type Graph struct {
+	// The graph description - provides additional details about the graph's
+	// purpose and contents.
+	Desc string `json:"desc,omitempty"`
+
+	// The edges/connections between nodes in the graph - contains the collection
+	// of edge objects defining relationships between nodes.
+	Edges []*Edge `json:"edges,omitempty"`
+
+	// Indicates if the graph is directed (true) or undirected (false).
+	IsDirected bool `json:"is_directed,omitempty"`
+
+	// The graph name - a human readable identifier for the graph.
+	Name string `json:"name,omitempty"`
+
+	// The nodes/vertices of the graph - contains the collection of node objects
+	// that make up the graph.
+	Nodes []*Node `json:"nodes,omitempty"`
+
+	// The graph query language, normalized to the caption of the query_language_id
+	// value.
+	QueryLanguage string `json:"query_language,omitempty"`
+
+	// The normalized identifier of a graph query language that can be used to
+	// interact with the graph.
+	QueryLanguageID int `json:"query_language_id,omitempty"`
+
+	// The graph type. Typically useful to represent the specific type of graph
+	// that is used.
+	Type string `json:"type,omitempty"`
+
+	// Unique identifier of the graph - a unique ID to reference this specific
+	// graph.
+	Uid string `json:"uid,omitempty"`
+}

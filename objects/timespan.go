@@ -1,0 +1,52 @@
+package objects
+
+// Code generated from OCSF schema; DO NOT EDIT.
+
+// Timespan The Time Span object represents different time period durations. If a timespan
+// is fractional, i.e. crosses one period, e.g. a week and 3 days, more than one
+// may be populated since each member is of integral type. In that case type_id if
+// present should be set to Other. A timespan may also be defined by its time
+// interval boundaries, start_time and end_time.
+type Timespan struct {
+	// The duration of the time span in milliseconds.
+	Duration int64 `json:"duration,omitempty"`
+
+	// The duration of the time span in days.
+	DurationDays int64 `json:"duration_days,omitempty"`
+
+	// The duration of the time span in hours.
+	DurationHours int64 `json:"duration_hours,omitempty"`
+
+	// The duration of the time span in minutes.
+	DurationMins int64 `json:"duration_mins,omitempty"`
+
+	// The duration of the time span in months.
+	DurationMonths int64 `json:"duration_months,omitempty"`
+
+	// The duration of the time span in seconds.
+	DurationSecs int64 `json:"duration_secs,omitempty"`
+
+	// The duration of the time span in weeks.
+	DurationWeeks int64 `json:"duration_weeks,omitempty"`
+
+	// The duration of the time span in years.
+	DurationYears int64 `json:"duration_years,omitempty"`
+
+	// The end time or conclusion of the timespan's interval.
+	EndTime int64 `json:"end_time,omitempty"`
+
+	// The end time or conclusion of the timespan's interval.
+	EndTimeDt string `json:"end_time_dt,omitempty"`
+
+	// The start time or beginning of the timespan's interval.
+	StartTime int64 `json:"start_time,omitempty"`
+
+	// The start time or beginning of the timespan's interval.
+	StartTimeDt string `json:"start_time_dt,omitempty"`
+
+	// The type of time span duration the object represents.
+	Type string `json:"type,omitempty"`
+
+	// The normalized identifier for the time span duration type.
+	TypeID int `json:"type_id,omitempty"`
+}
